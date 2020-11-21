@@ -2,6 +2,9 @@
 // variables
 
 $card-font: 'Inconsolata', monospace;
+$form-font: 'Poppins', sans-serif;
+$button-color: #b91e51;
+$card-type-color: #15046d;
 
 *{
     margin: 0;
@@ -9,7 +12,19 @@ $card-font: 'Inconsolata', monospace;
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+// Credit Card Styling
+
 .credit-card{
+    position: relative;
+    transform: translateY(50px);
     width: 350px;
     height: 240px;
     border-radius: 10px;
@@ -19,6 +34,8 @@ $card-font: 'Inconsolata', monospace;
     background: url('/media/abstract.jpg');
     background-size: cover;
     color: white;
+    box-shadow: 0px 10px 50px rgba(0,0,0,0.5);
+
     #logo-display{
         display: flex;
         align-items: center;
@@ -59,10 +76,117 @@ $card-font: 'Inconsolata', monospace;
     }
 }
 
+// Input form styling
+
 .input-form{
-    #number-input{
-        .number{
-            text-align: right;
+    width: 500px;
+    padding: 1em;
+    font-family: $form-font;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: min-content repeat(3, 1fr) min-content;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    box-shadow: 0px 10px 50px rgba(0,0,0,0.5);
+
+    .card-type{
+        grid-column: span 12;
+        padding: 1em 1em 1.8em 1em;
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 40% repeat(4, 1fr);
+        border-bottom: 1px solid rgb(205, 203, 203);
+        input{
+            cursor: pointer;
         }
+        #card-type{
+            align-self: center;
+        }
+        #master-card, #visa{
+            align-self: center;
+            justify-self: center;
+        }
+        #master-card-label, #visa-label{
+            justify-self: end;
+        }
+        
+        i{
+            font-size: 3em;
+            color: $card-type-color;
+            justify-self: end;
+        }
+    }
+
+    #number-input{
+        grid-column: span 12;
+        padding: 1.5em 1em 1.8em 1em;
+        display: grid;
+        grid-template-columns: 40% repeat(4, 1fr);
+        grid-gap: 10px;
+        border-bottom: 1px solid rgb(205, 203, 203);
+
+        #card-number-input{
+            align-self: center;
+        }
+        .number{
+            text-align: center;
+            font-size: 1em;
+            padding: 8px;
+            width: 100%;
+        }
+    }
+
+    #expiry-input{
+        grid-column: span 12;
+        display: grid;
+        grid-template-columns: 40% repeat(4, 1fr);
+        padding: 1.5em 1em 1.8em 1em;
+        border-bottom: 1px solid rgb(205, 203, 203);
+        input{
+            font-size: 1em;
+            padding: 8px;
+            text-align: center;
+        }
+        #month-input-label{
+            align-self: center;
+        }
+        #month-input{
+            grid-column: 3;
+            width: 100%;;
+            justify-self: center;
+        }
+        #year-input-label{
+            font-size: 1em;
+            align-self: center;
+            justify-self: center;
+        }
+
+    }
+
+    #card-owner-input{
+        grid-column: span 12;
+        display: grid;
+        grid-template-columns: 40% repeat(4, 1fr);
+        grid-gap: 1em;
+        padding: 1.5em 1em 1.8em 1em;
+        border-bottom: 1px solid rgb(205, 203, 203);
+        #owner-input-label{
+            align-self: center;
+        }
+        #owner-input{
+            grid-column: span 4;
+            font-size: 1em;
+            padding: 8px;
+        }
+    }
+
+    button{
+        grid-column: 3 / -3;
+        padding: 1em;
+        margin: 2em 0;
+        background: $button-color;
+        color: white;
+        border: none;
+        border-radius: 5px;
     }
 }
