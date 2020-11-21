@@ -1,0 +1,1 @@
+*{margin:0;padding:0;box-sizing:border-box}.credit-card{width:300px;height:190px;border:1px solid black;border-radius:10px;display:grid;padding:1em}.credit-card #logo-display{display:flex;align-items:center;justify-content:flex-end}.credit-card #number-display ul{display:flex;align-items:center;justify-content:space-around}.credit-card #number-display li{list-style:none}

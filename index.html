@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <script defer src="app.js"></script>
+    <title>Credit Card Form</title>
+</head>
+
+<body>
+    <div class="credit-card">
+        <div id="logo-display">
+            <i class="fab fa-cc-mastercard"></i>
+            <!-- <i class="fab fa-cc-visa"></i> -->
+        </div>
+        <div id="number-display">
+            <ul>
+                <li id="number-1">0000</li>
+                <li id="number-2">0000</li>
+                <li id="number-3">0000</li>
+                <li id="number-4">0000</li>
+            </ul>
+        </div>
+        <div id="valid-display">
+            <label for="expire-date">Good Thru</label>
+            <h3 id="expire-date">12/22</h3>
+        </div>
+        <div id="name-display">
+            <label for="card-owner">Owner:</label>
+            <h3 id="card-owner">John Doe</h3>
+        </div>
+    </div>
+    <form class="input-form">
+        <label for="card-type">Choose Card</label>
+        <div class="card-type">
+            <label for=""><i class="fab fa-cc-mastercard"></i></label>
+            <input type="radio" id="master-card" value="mastercard" name="card-type"checked>
+            <label for=""><i class="fab fa-cc-visa"></i></label>
+            <input type="radio" id="visa" value="visa" name="card-type">
+        </div>
+        <label for="card-number-input"> Card Number:</label>
+        <div id="number-input">
+            <input type="text" name="number-1" id="input-number-1" placeholder="0000" size="4">
+            <input type="text" name="number-2" id="input-number-2" placeholder="0000" size="4">
+            <input type="text" name="number-3" id="input-number-3" placeholder="0000" size="4">
+            <input type="text" name="number-4" id="input-number-4" placeholder="0000" size="4">
+        </div>
+        <div id="expiry-input">
+            <label for="month-input">Month:</label>
+            <input type="number" name="month-input" id="month-input" min="1" max="12" placeholder="01" size="2">
+            <label for="year-input">Year:</label>
+            <input type="text" name="year-input" id="year-input" placeholder="2025" size="4">
+        </div>
+        <div id="card-owner-input">
+            <label for="owner-input">Card Holder:</label>
+            <input type="text" name="owner-input" id="owner-input" placeholder="Your Name...">
+        </div>
+    </form>
+</body>
+
+</html>
