@@ -11,6 +11,7 @@ const UI = (() => {
         numberDisplay: '#number-display',
         validDisplay: '#valid-display',
         nameDisplay: '#name-display',
+        cardOwner: '#card-owner',
 
         // form input elements
 
@@ -18,7 +19,9 @@ const UI = (() => {
         inputMasterCard: '#master-card',
         numberInput: '.number',
         submitBtn: '#submit-btn',
-        numberInputField: '#number-input'
+        numberInputField: '#number-input',
+        nameInput: '#owner-input',
+        ownerInputField: '#card-owner-input'
 
     }
 
@@ -50,6 +53,10 @@ const App = ((UI) => {
         numbers.forEach((number) => {
             document.querySelector(`#${number.id}`).addEventListener('keyup', updateNumberDisplay);
         })
+
+        // change name display on card
+
+        document.querySelector(Elements.nameInput).addEventListener('keyup', updateNameDisplay);
         
         // submit form
 
@@ -70,6 +77,8 @@ const App = ((UI) => {
         }
 
     }
+
+
 
     let targetIndex = 0;
 
@@ -110,6 +119,18 @@ const App = ((UI) => {
 
     }
 
+    const updateNameDisplay = (e) => {
+
+        e.preventDefault();
+
+        let name = e.target.value;
+
+        let nameDisplay = document.querySelector(Elements.cardOwner);
+
+        nameDisplay.textContent = name;
+
+    }
+
     const submitForm = (e) => {
 
         e.preventDefault();
@@ -119,10 +140,22 @@ const App = ((UI) => {
         const numberFields = Array.from(document.querySelectorAll(Elements.numberInput));
 
         const inputField = document.querySelector(Elements.numberInputField);
+
+        const nameField = document.querySelector(Elements.nameInput);
+
+        const ownerInputField = document.querySelector(Elements.ownerInputField);
+
         if(numberFields[0].value === '' || numberFields[1].value === '' || numberFields[2].value === '' || numberFields[3].value === ''){
             inputField.style.boxShadow = 'inset 2px 2px red, inset -2px -2px red';
             setTimeout(() => {
                 inputField.style.boxShadow = 'none';
+            },3000)
+        }
+
+        if(nameField.value === ''){
+            ownerInputField.style.boxShadow = 'inset 2px 2px red, inset -2px -2px red';
+            setTimeout(() => {
+                ownerInputField.style.boxShadow = 'none';
             },3000)
         }
         
