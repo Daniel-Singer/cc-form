@@ -93,7 +93,6 @@ body {
     grid-template-columns: repeat(12, 1fr);
     align-items: center;
     box-shadow: 0px 10px 50px rgba(0,0,0,0.5);
-
     .card-type{
         grid-column: span 12;
         padding: 1em 1em 1.8em 1em;
@@ -194,5 +193,31 @@ body {
         color: white;
         border: none;
         border-radius: 5px;
+        transition: ease-in-out 0.1s;
+        &:hover{
+            transform: scale(1.01);
+            
+        }
+    }
+}
+
+.card-fly-away{
+    animation-name: flyAway;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flyAway{
+    0%{
+        opacity: 1;
+        transform: translateY(50px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-50px);
+        display: none;
     }
 }

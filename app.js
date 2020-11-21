@@ -5,6 +5,8 @@ const UI = (() => {
 
     const UIElements = {
 
+        creditCard: '.credit-card',
+
         // credit card display elements
 
         logoDisplay: '#logo-display',
@@ -158,6 +160,8 @@ const App = ((UI) => {
                 ownerInputField.style.boxShadow = 'none';
             },3000)
         }
+
+        document.querySelector(Elements.creditCard).classList.add('card-fly-away');
         
     }
 
