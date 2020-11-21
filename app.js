@@ -15,7 +15,8 @@ const UI = (() => {
         // form input elements
 
         inputVisa: '#visa',
-        inputMasterCard: '#master-card'
+        inputMasterCard: '#master-card',
+        numberInput: '.number',
 
     }
 
@@ -31,6 +32,9 @@ const App = ((UI) => {
 
     const Elements = UI.getUIElements();
 
+    const numbers = Array.from(document.querySelectorAll(Elements.numberInput));
+
+
     const loadEventListeners = () => {
 
         // change card type buttons
@@ -39,6 +43,13 @@ const App = ((UI) => {
 
         document.querySelector(Elements.inputMasterCard).addEventListener('change', updateLogoDisplay);
 
+        // change number display on card
+
+        numbers.forEach((number) => {
+            document.querySelector(`#${number.id}`).addEventListener('keyup', updateNumberDisplay);
+        //  console.log(number.id)
+        })
+        
 
 
     }
@@ -52,6 +63,38 @@ const App = ((UI) => {
         } else {
             document.querySelector(Elements.logoDisplay).innerHTML = '<i class="fab fa-cc-mastercard"></i>';
 
+        }
+
+    }
+
+    let targetIndex = 0;
+
+    const updateNumberDisplay = (e) => {
+        
+
+        e.preventDefault();
+
+        let value = e.target.value;
+
+        let inputLength = e.target.value.length;
+
+        let index = e.target.id.charAt(13);
+
+        let numberDisplay = document.querySelector(`#number-${index}`);
+
+        if(inputLength === 1){
+            numberDisplay.textContent = `000${value}`;
+        }
+        if(inputLength === 2){
+            numberDisplay.textContent = `00${value}`;
+        }
+        if(inputLength === 3){
+            numberDisplay.textContent = `0${value}`;
+        }
+        if(inputLength === 4){
+            numberDisplay.textContent = value;
+            targetIndex++;
+            document.querySelector(`#input-number-${targetIndex}`).focus();
         }
 
     }

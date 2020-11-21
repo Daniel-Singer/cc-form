@@ -28,3 +28,7 @@
 .credit-card #number-display li {
   list-style: none;
 }
+
+.input-form #number-input .number {
+  text-align: right;
+}
