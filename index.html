@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
     <script defer src="app.js"></script>
     <title>Credit Card Form</title>
 </head>
@@ -26,11 +30,10 @@
             </ul>
         </div>
         <div id="valid-display">
-            <label for="expire-date">Good Thru</label>
-            <h3 id="expire-date">12/22</h3>
+            <label for="expire-date">Good thru</label>
+            <h3 id="expire-date">00/00</h3>
         </div>
         <div id="name-display">
-            <label for="card-owner">Owner:</label>
             <h3 id="card-owner">John Doe</h3>
         </div>
     </div>
@@ -38,7 +41,7 @@
         <label for="card-type">Choose Card</label>
         <div class="card-type">
             <label for=""><i class="fab fa-cc-mastercard"></i></label>
-            <input type="radio" id="master-card" value="mastercard" name="card-type"checked>
+            <input type="radio" id="master-card" value="mastercard" name="card-type" checked>
             <label for=""><i class="fab fa-cc-visa"></i></label>
             <input type="radio" id="visa" value="visa" name="card-type">
         </div>

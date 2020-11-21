@@ -1,3 +1,8 @@
+
+// variables
+
+$card-font: 'Inconsolata', monospace;
+
 *{
     margin: 0;
     padding: 0;
@@ -5,26 +10,52 @@
 }
 
 .credit-card{
-    width: 300px;
-    height: 190px;
-    border: 1px solid black;
+    width: 350px;
+    height: 240px;
     border-radius: 10px;
     display: grid;
     padding: 1em;
+    font-family: $card-font;
+    background: url('/media/abstract.jpg');
+    background-size: cover;
+    color: white;
     #logo-display{
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        .fab{
+            font-size: 2.5em;
+        }
     }
     #number-display{
         ul{
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
         }
         li{
             list-style: none;
+            font-size: 1.8em;
+            
         }
+    }
+
+    #valid-display{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        label{
+            text-transform: uppercase;
+            font-size: 0.8em;
+        }
+    }
+    #name-display{
+        font-size: 1.2em;
+        letter-spacing: 3px;
+
+        text-transform: uppercase;
+        display: flex;
+        align-items: flex-end;
     }
 }
 
