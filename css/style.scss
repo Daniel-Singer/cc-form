@@ -40,7 +40,7 @@ body {
     color: white;
     box-shadow: 0px 10px 50px rgba(0,0,0,0.5);
 
-    
+
     #logo-display{
         display: flex;
         align-items: center;
@@ -129,6 +129,7 @@ body {
         grid-template-columns: 40% repeat(4, 1fr);
         grid-gap: 10px;
         border-bottom: 1px solid rgb(205, 203, 203);
+        
 
         #card-number-input{
             align-self: center;

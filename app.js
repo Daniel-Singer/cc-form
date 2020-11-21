@@ -17,6 +17,8 @@ const UI = (() => {
         inputVisa: '#visa',
         inputMasterCard: '#master-card',
         numberInput: '.number',
+        submitBtn: '#submit-btn',
+        numberInputField: '#number-input'
 
     }
 
@@ -47,9 +49,11 @@ const App = ((UI) => {
 
         numbers.forEach((number) => {
             document.querySelector(`#${number.id}`).addEventListener('keyup', updateNumberDisplay);
-        //  console.log(number.id)
         })
         
+        // submit form
+
+        document.querySelector(Elements.submitBtn).addEventListener('click', submitForm);
 
 
     }
@@ -71,7 +75,6 @@ const App = ((UI) => {
 
     const updateNumberDisplay = (e) => {
         
-
         e.preventDefault();
 
         let value = e.target.value;
@@ -94,16 +97,44 @@ const App = ((UI) => {
         if(inputLength === 4){
             numberDisplay.textContent = value;
             targetIndex++;
-            document.querySelector(`#input-number-${targetIndex}`).focus();
+            if(targetIndex !== 4){
+                document.querySelector(`#input-number-${targetIndex}`).focus();
+            } else {
+                document.querySelector(`#input-number-${targetIndex -1 }`).blur();
+                targetIndex = 0;
+            }
+            
         }
+        
 
+
+    }
+
+    const submitForm = (e) => {
+
+        e.preventDefault();
+
+        // check if card number is empty
+
+        const numberFields = Array.from(document.querySelectorAll(Elements.numberInput));
+
+        const inputField = document.querySelector(Elements.numberInputField);
+        if(numberFields[0].value === '' || numberFields[1].value === '' || numberFields[2].value === '' || numberFields[3].value === ''){
+            inputField.style.boxShadow = 'inset 2px 2px red, inset -2px -2px red';
+            setTimeout(() => {
+                inputField.style.boxShadow = 'none';
+            },3000)
+        }
+        
     }
 
     return {
         init: () => {
+
             console.log('app conected')
 
-            loadEventListeners()
+            loadEventListeners();
+
         }
     }
 
