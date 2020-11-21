@@ -147,8 +147,11 @@ const App = ((UI) => {
 
         const ownerInputField = document.querySelector(Elements.ownerInputField);
 
+        let validFields = [];
+
         if(numberFields[0].value === '' || numberFields[1].value === '' || numberFields[2].value === '' || numberFields[3].value === ''){
             inputField.style.boxShadow = 'inset 2px 2px red, inset -2px -2px red';
+            validFields.push(false)
             setTimeout(() => {
                 inputField.style.boxShadow = 'none';
             },3000)
@@ -156,12 +159,17 @@ const App = ((UI) => {
 
         if(nameField.value === ''){
             ownerInputField.style.boxShadow = 'inset 2px 2px red, inset -2px -2px red';
+            validFields.push(false)
             setTimeout(() => {
                 ownerInputField.style.boxShadow = 'none';
             },3000)
+        }   
+
+        if(validFields.length === 0){
+            document.querySelector(Elements.creditCard).classList.add('card-fly-away');
+
         }
 
-        document.querySelector(Elements.creditCard).classList.add('card-fly-away');
         
     }
 
