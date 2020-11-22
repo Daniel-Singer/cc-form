@@ -167,7 +167,13 @@ const App = ((UI) => {
 
         if(validFields.length === 0){
             document.querySelector(Elements.creditCard).classList.add('card-fly-away');
+        }
 
+        if(validFields.length !== 0){
+            document.querySelector(Elements.creditCard).classList.add('shake');
+            setTimeout(() => {
+                document.querySelector(Elements.creditCard).classList.remove('shake');
+            }, 500)
         }
 
         

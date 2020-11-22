@@ -201,6 +201,12 @@ body {
   animation-fill-mode: forwards;
 }
 
+.shake {
+  transform: translateY(50px);
+  animation-name: shake;
+  animation-duration: 0.3s;
+}
+
 @keyframes flyAway {
   0% {
     opacity: 1;
@@ -213,5 +219,23 @@ body {
     opacity: 0;
     transform: translateY(-50px);
     display: none;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(50px);
+  }
+  25% {
+    transform: translateY(40px);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+  75% {
+    transform: translateY(40px);
+  }
+  100% {
+    transform: translateY(50px);
   }
 }
