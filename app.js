@@ -5,6 +5,8 @@ const UI = (() => {
 
     const UIElements = {
 
+        creditCard: '.credit-card',
+
         // credit card display elements
 
         logoDisplay: '#logo-display',
@@ -39,7 +41,6 @@ const App = ((UI) => {
 
     const numbers = Array.from(document.querySelectorAll(Elements.numberInput));
 
-
     const loadEventListeners = () => {
 
         // change card type buttons
@@ -65,16 +66,18 @@ const App = ((UI) => {
 
     }
 
+    // updating the logo of credit card company on cc display
+
     const updateLogoDisplay = (e) => {
 
         e.preventDefault();
 
         if(e.target.id === 'visa'){
             document.querySelector(Elements.logoDisplay).innerHTML = '<i class="fab fa-cc-visa">';
-        } else {
-            document.querySelector(Elements.logoDisplay).innerHTML = '<i class="fab fa-cc-mastercard"></i>';
-
-        }
+            return;
+        } 
+        document.querySelector(Elements.logoDisplay).innerHTML = '<i class="fab fa-cc-mastercard"></i>';
+        
 
     }
 
@@ -95,23 +98,27 @@ const App = ((UI) => {
         let numberDisplay = document.querySelector(`#number-${index}`);
 
         if(inputLength === 1){
-            numberDisplay.textContent = `000${value}`;
+            numberDisplay.textContent = `###${value}`;
         }
         if(inputLength === 2){
-            numberDisplay.textContent = `00${value}`;
+            numberDisplay.textContent = `##${value}`;
         }
         if(inputLength === 3){
-            numberDisplay.textContent = `0${value}`;
+            numberDisplay.textContent = `#${value}`;
         }
         if(inputLength === 4){
+
             numberDisplay.textContent = value;
+
             targetIndex++;
+
             if(targetIndex !== 4){
                 document.querySelector(`#input-number-${targetIndex}`).focus();
-            } else {
-                document.querySelector(`#input-number-${targetIndex -1 }`).blur();
-                targetIndex = 0;
-            }
+                return;
+            } 
+            document.querySelector(`#input-number-${targetIndex -1 }`).blur();
+            targetIndex = 0;
+            
             
         }
         
@@ -145,8 +152,11 @@ const App = ((UI) => {
 
         const ownerInputField = document.querySelector(Elements.ownerInputField);
 
+        let validFields = [];
+
         if(numberFields[0].value === '' || numberFields[1].value === '' || numberFields[2].value === '' || numberFields[3].value === ''){
             inputField.style.boxShadow = 'inset 2px 2px red, inset -2px -2px red';
+            validFields.push(false)
             setTimeout(() => {
                 inputField.style.boxShadow = 'none';
             },3000)
@@ -154,10 +164,23 @@ const App = ((UI) => {
 
         if(nameField.value === ''){
             ownerInputField.style.boxShadow = 'inset 2px 2px red, inset -2px -2px red';
+            validFields.push(false)
             setTimeout(() => {
                 ownerInputField.style.boxShadow = 'none';
             },3000)
+        }   
+
+        if(validFields.length === 0){
+            document.querySelector(Elements.creditCard).classList.add('card-fly-away');
         }
+
+        if(validFields.length !== 0){
+            document.querySelector(Elements.creditCard).classList.add('shake');
+            setTimeout(() => {
+                document.querySelector(Elements.creditCard).classList.remove('shake');
+            }, 500)
+        }
+
         
     }
 
