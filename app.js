@@ -6,6 +6,7 @@ const UI = (() => {
     const UIElements = {
 
         creditCard: '.credit-card',
+        cardBackground: '.credit-card-background',
 
         // credit card display elements
 
@@ -66,9 +67,9 @@ const App = ((UI) => {
 
         // cvv input field 
 
-        document.querySelector(Element.cvvInput).addEventListener('focus', updateCVVDisplay);
+        document.querySelector(Elements.cvvInput).addEventListener('focus', updateCVVDisplay);
 
-
+        
     }
 
     // updating the logo of credit card company on cc display
@@ -143,6 +144,15 @@ const App = ((UI) => {
 
     }
 
+    const updateCVVDisplay = (e) => {
+
+        e.preventDefault();
+
+        const frontSide = document.querySelector(Elements.creditCard);
+
+        frontSide.classList.add('flip');
+    }
+
     const submitForm = (e) => {
 
         e.preventDefault();
@@ -192,7 +202,9 @@ const App = ((UI) => {
     return {
         init: () => {
 
-            console.log('app conected')
+            console.log('app conected');
+
+            document.querySelector(Elements.cardBackground).style.display = 'none';
 
             loadEventListeners();
 

@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <script defer src="app.js"></script>
     <title>Credit Card Form</title>
 </head>
@@ -37,6 +39,17 @@
             <h3 id="card-owner">YOUR NAME</h3>
         </div>
     </div>
+    <div class="credit-card-background">
+        <div id="magnet-strip"></div>
+        <div class="info-fields">
+            <div id="name-field">
+                <h3>Daniel Singer</h3>
+            </div>
+            <div id="cvv-field">
+                <h3>000</h3>
+            </div>
+        </div>
+    </div>
     <form class="input-form">
         <div class="card-type">
             <label for="card-type" id="card-type">Choose Card</label>
@@ -45,7 +58,7 @@
             <input type="radio" id="visa" value="visa" name="card-type">
             <label for="visa" id="visa-label"><i class="fab fa-cc-visa"></i></label>
         </div>
-        
+
         <div id="number-input">
             <label for="card-number-input" id="card-number-input"> Card Number:</label>
             <input class="number" type="text" name="number-0" id="input-number-0" placeholder="0000" size="4">
