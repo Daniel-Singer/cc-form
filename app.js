@@ -23,7 +23,8 @@ const UI = (() => {
         submitBtn: '#submit-btn',
         numberInputField: '#number-input',
         nameInput: '#owner-input',
-        ownerInputField: '#card-owner-input'
+        ownerInputField: '#card-owner-input',
+        cvvInput: '#cvv-input'
 
     }
 
@@ -62,6 +63,10 @@ const App = ((UI) => {
         // submit form
 
         document.querySelector(Elements.submitBtn).addEventListener('click', submitForm);
+
+        // cvv input field 
+
+        document.querySelector(Element.cvvInput).addEventListener('focus', updateCVVDisplay);
 
 
     }
