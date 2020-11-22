@@ -73,7 +73,7 @@ body {
   font-family: "Poppins", sans-serif;
   border-radius: 5px;
   display: grid;
-  grid-template-rows: min-content repeat(3, 1fr) min-content;
+  grid-template-rows: min-content repeat(4, 1fr) min-content;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.5);
@@ -177,6 +177,25 @@ body {
 .input-form #card-owner-input #owner-input {
   grid-column: span 4;
   font-size: 1em;
+  padding: 8px;
+}
+
+.input-form #cvv-number-input {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: 40% repeat(4, 1fr);
+  grid-gap: 1em;
+  padding: 1.5em 1em 1.8em 1em;
+  border-bottom: 1px solid #cdcbcb;
+}
+
+.input-form #cvv-number-input #cvv-input-label {
+  align-self: center;
+}
+
+.input-form #cvv-number-input #cvv-input {
+  text-align: center;
+  grid-column: 5;
   padding: 8px;
 }
 
