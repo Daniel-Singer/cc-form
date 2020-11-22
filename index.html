@@ -23,15 +23,15 @@
         </div>
         <div id="number-display">
             <ul>
-                <li id="number-0">0000</li>
-                <li id="number-1">0000</li>
-                <li id="number-2">0000</li>
-                <li id="number-3">0000</li>
+                <li id="number-0">####</li>
+                <li id="number-1">####</li>
+                <li id="number-2">####</li>
+                <li id="number-3">####</li>
             </ul>
         </div>
         <div id="valid-display">
             <label for="expire-date">Good thru</label>
-            <h3 id="expire-date">00/00</h3>
+            <h3 id="expire-date">##/##</h3>
         </div>
         <div id="name-display">
             <h3 id="card-owner">YOUR NAME</h3>
@@ -64,6 +64,11 @@
         <div id="card-owner-input">
             <label for="owner-input" id="owner-input-label">Card Holder:</label>
             <input type="text" name="owner-input" id="owner-input" placeholder="Your Name...">
+        </div>
+
+        <div id="cvv-number-input">
+            <label for="cvv-input" id="cvv-input-label">CVV</label>
+            <input type="text" name="cvv-input" id="cvv-input" placeholder="000" size="3">
         </div>
 
         <button id="submit-btn">SUBMIT</button>

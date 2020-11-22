@@ -41,7 +41,6 @@ const App = ((UI) => {
 
     const numbers = Array.from(document.querySelectorAll(Elements.numberInput));
 
-
     const loadEventListeners = () => {
 
         // change card type buttons
@@ -67,16 +66,18 @@ const App = ((UI) => {
 
     }
 
+    // updating the logo of credit card company on cc display
+
     const updateLogoDisplay = (e) => {
 
         e.preventDefault();
 
         if(e.target.id === 'visa'){
             document.querySelector(Elements.logoDisplay).innerHTML = '<i class="fab fa-cc-visa">';
-        } else {
-            document.querySelector(Elements.logoDisplay).innerHTML = '<i class="fab fa-cc-mastercard"></i>';
-
-        }
+            return;
+        } 
+        document.querySelector(Elements.logoDisplay).innerHTML = '<i class="fab fa-cc-mastercard"></i>';
+        
 
     }
 
@@ -97,23 +98,27 @@ const App = ((UI) => {
         let numberDisplay = document.querySelector(`#number-${index}`);
 
         if(inputLength === 1){
-            numberDisplay.textContent = `000${value}`;
+            numberDisplay.textContent = `###${value}`;
         }
         if(inputLength === 2){
-            numberDisplay.textContent = `00${value}`;
+            numberDisplay.textContent = `##${value}`;
         }
         if(inputLength === 3){
-            numberDisplay.textContent = `0${value}`;
+            numberDisplay.textContent = `#${value}`;
         }
         if(inputLength === 4){
+
             numberDisplay.textContent = value;
+
             targetIndex++;
+
             if(targetIndex !== 4){
                 document.querySelector(`#input-number-${targetIndex}`).focus();
-            } else {
-                document.querySelector(`#input-number-${targetIndex -1 }`).blur();
-                targetIndex = 0;
-            }
+                return;
+            } 
+            document.querySelector(`#input-number-${targetIndex -1 }`).blur();
+            targetIndex = 0;
+            
             
         }
         
